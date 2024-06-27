@@ -13,8 +13,9 @@ class PostController extends Controller
      */
     public function index()
     {
+        $posts = Post::latest()->paginate(6);
         //
-        return view('posts.index');
+        return view('posts.index', ['posts' => $posts]);
     }
 
     /**
