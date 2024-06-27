@@ -11,7 +11,7 @@
 <body class="bg-slate-100 text-black">
     <header class="bg-slate-800 p-8">
         <nav>
-            <a href="{{ route('home') }}" class="nav-link">Home</a>
+            <a href="{{ route('posts.index') }}" class="nav-link">Home</a>
             @auth
                 <div class="relative grid place-items-center" x-data="{ open: false }">
                     {{-- Dropdown Menu Button --}}
