@@ -15,8 +15,9 @@
 
                         {{-- Body --}}
 
-                        <div class="text-sm">
-                            <p> {{ Str::words($post->body, 15) }} </p>
+                        <div class="text-xs">
+                            <span> {{ Str::words($post->body, 15) }} </span>
+                            <a href="{{ route('posts.show', $post) }}">Read More &rarr;</a>
                         </div>
                     </div>
                 </div>

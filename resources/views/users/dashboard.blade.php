@@ -3,10 +3,13 @@
     {{-- Create Post Form  --}}
     <div class="mb-4 card">
         <h2 class="font-bold mb-4">Create a new post</h2>
+
         {{-- Session Messages --}}
-        <div>
-            <p> {{ session('success') }} </p>
-        </div>
+        @if (session('success'))
+            <div class="mb-2">
+                <x-flashMsg msg="{{ session('success') }}" />
+            </div>
+        @endif
         <form action="{{ route('posts.store') }}" method="POST">
             @csrf
             {{-- Title --}}
@@ -31,5 +34,15 @@
                 <button class="btn">Create</button>
             </div>
         </form>
+    </div>
+    {{-- User Posts  --}}
+    <h2 class="font-bold mb-4">Your Latest Posts</h2>
+    @foreach ($posts as $post)
+        <x-postCard :post="$post">
+
+        </x-postCard>
+    @endforeach
+    <div>
+        {{ $posts->links() }}
     </div>
 </x-layout>
